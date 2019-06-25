@@ -2,8 +2,8 @@ var orm = require("../config/orm.js")
 
 var burger = {
     all: function(cb) {
-        orm.all("burgers", function(res) {
-            cb(res)
+        orm.all("burgers", function(response) {
+            cb(response)
         })
     },
     create: function(name, cb) {
@@ -14,10 +14,10 @@ var burger = {
         ], cb)
     },
     update: function(id, cb) {
-        var condition = "id=" + id
+        var eaten = `id=${id}`
         orm.update("burgers", {
             devoured: true
-        }, condition, cb)
+        }, eaten, cb)
     }
 }
 
